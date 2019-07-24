@@ -1,0 +1,21 @@
+<h1>Pins#index</h1>
+<p>Find me in app/views/pins/index.html.erb</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Imagen</th>
+      <th>Descripción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @Pins.each do |pin| %>
+      <tr>
+        <td><%= pin.name %></td>
+        <td><%= pin.image %></td>
+        <td><%= pin.description %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

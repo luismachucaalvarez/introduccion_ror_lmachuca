@@ -1,0 +1,61 @@
+/* General */
+
+/* Media Queries */
+
+
+
+/* Utilidades */
+
+.texto-blanco{
+    color: white;
+}
+
+/* Navbar */
+#logo{
+    width: 60px;
+    /* padding-left:10px;
+    margin-right:0; */
+}
+
+#usuario{
+    display: inline; 
+    padding-right: 10px;
+}
+
+/* Presentación pins */
+
+/* @media (min-width: 600px){
+    .card-columns{
+        column-count: 2;
+    }
+}
+
+@media (min-width: 800px){
+    .card-columns{
+        column-count: 3;
+    }
+}
+
+@media (min-width: 1024px){
+    .card-columns{
+        column-count: 4;
+      }
+}
+
+@media (min-width: 1368px){
+    .card-columns{
+        column-count: 5;
+      }
+}
+
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+  
+    > .col,
+    > [class*="col-"] {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+ */

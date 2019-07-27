@@ -1,5 +1,3 @@
-<h1>Pins#index</h1>
-<p>Find me in app/views/pins/index.html.erb</p>
 
 <table>
   <thead>
@@ -13,7 +11,7 @@
     <% @Pins.each do |pin| %>
       <tr>
         <td><%= pin.name %></td>
-        <td><%= pin.image %></td>
+        <td><image src="<%= pin.image %>"></td>
         <td><%= pin.description %></td>
       </tr>
     <% end %>

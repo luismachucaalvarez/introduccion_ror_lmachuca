@@ -22,6 +22,11 @@
     padding-right: 10px;
 }
 
+#avatar{
+    
+    margin: 3px;
+}
+
 /* Presentación pins */
 
 /* @media (min-width: 600px){

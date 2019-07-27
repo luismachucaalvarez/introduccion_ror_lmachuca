@@ -1,39 +1,48 @@
 
 <!--Navbar -->
- <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
-    <a href="#" class="navbar-brand" id="logo"><%= image_tag("pinterest_logo.jpg", :alt=> "Mi Pinterest", id:'logo') %></a>
-    <!-- Buttons for responsive menu -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+	<a href="#" class="navbar-brand" id="logo"><%= image_tag("pinterest_logo.jpg", :alt=> "Mi Pinterest", id:'logo') %></a>
 
-    <!-- Navbar links -->
-    <div class="collapse navbar-collapse flex-grow-1 text right" id="navbarSupportedContent">
+	<!-- Buttons for responsive menu -->
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
 
-        <form class="form-inline">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search">
-            <button class="btn btn-success" type="submit">Search</button>
-        </form>
-        <ul class="navbar-nav ml-auto flex-nowrap">
-            <li class="nav-link menu-item"> Inicio</li>
-            <li class="nav-link menu-item"> Mis Pins</li>
-            <%  unless user_signed_in? %>
-           <li class="nav-item">
-               <%= link_to "Registro", new_user_registration_path, class: "btn btn-primary btn-md navbar-btn", role: "button" %>
-           </li>
-           <li class="nav-item">
-               <%= link_to "Ingresar", user_session_path, class: "btn btn-primary btn-md navbar-btn", role: "button" %>
-           </li>
-       <% else %>
-           <li class="nav-item">
-               <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class: "btn btn-primary navbar-btn", role: "button" %>
-           </li>
-       <% end %>
+	<!-- Navbar links -->
+	<div class="collapse navbar-collapse flex-grow-1 text right" id="navbarSupportedContent">
+		<!-- Search form -->
+		<form class="form-inline">
+			<input class="form-control mr-sm-2" type="text" placeholder="Search">
+			<button class="btn btn-success" type="submit">Search</button>
+		</form>
+
+		<!-- Menu elements -->
+    	<ul class="navbar-nav ml-auto flex-nowrap">
+			<li class="nav-link menu-item"> Inicio</li>
+         	<li class="nav-link menu-item"> Mis Pins</li>
+
+			 <!-- The following conditional tests if the user is logged on to the site -->
+			<%  unless user_signed_in? %>
+				<li class="nav-item">
+					<%= link_to "Registro", new_user_registration_path, class: "btn btn-primary btn-md navbar-btn", role: "button" %>
+				</li>
+				<li class="nav-item">
+					<%= link_to "Ingresar", user_session_path, class: "btn btn-primary btn-md navbar-btn", role: "button" %>
+				</li>
+		    <% else %>
+				<li class="nav-item">
+				<%= unless current_user.avatar.nil? %>
+					<%= image_tag("user_icon.jpg", style: 'width:40px', id: 'avatar') %>
+				<% else %>
+					<img src="<%= current_user.avatar %>" style="width:40px" id="avatar">
+				<% end %>
+				</li>
+				<li class="nav-item">
+					<%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class: "btn btn-primary navbar-btn", role: "button" %>
+				</li>
+      	 	<% end %>
         </ul>
-
-        
-        
-        
+    </div>
         <!-- <span class="navbar-text">
             Bienvenido, usuario
         </span> -->
@@ -52,5 +61,6 @@
         </div>
     </div> -->
 </nav>
+
 <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+<p class="alert"><%= alert %></p>

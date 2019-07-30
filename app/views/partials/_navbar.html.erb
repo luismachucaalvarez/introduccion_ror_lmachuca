@@ -1,7 +1,7 @@
 
 <!--Navbar -->
 <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
-	<a href="#" class="navbar-brand" id="logo"><%= image_tag("pinterest_logo.jpg", :alt=> "Mi Pinterest", id:'logo') %></a>
+	<a href="/" class="navbar-brand" id="logo"><%= image_tag("pinterest_logo.jpg", :alt=> "Mi Pinterest", id:'logo') %></a>
 
 	<!-- Buttons for responsive menu -->
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,10 +11,16 @@
 	<!-- Navbar links -->
 	<div class="collapse navbar-collapse flex-grow-1 text right" id="navbarSupportedContent">
 		<!-- Search form -->
-		<form class="form-inline">
-			<input class="form-control mr-sm-2" type="text" placeholder="Search">
+		
+		<%# <form class="form-inline" action="<%= pins_path %>"> %>
+			<%# <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="q">
 			<button class="btn btn-success" type="submit">Search</button>
-		</form>
+		</form> %>
+
+		<%= form_tag(pins_path, method: :get, class:'form-inline') do %>
+			<%= text_field_tag :q , params[:q], class: 'form-control mr-sm-2' %>
+			<%= submit_tag 'Buscar', name: nil, class:'btn btn-success' %>
+		<% end %>
 
 		<!-- Menu elements -->
     	<ul class="navbar-nav ml-auto flex-nowrap">
@@ -31,11 +37,7 @@
 				</li>
 		    <% else %>
 				<li class="nav-item">
-				<%= unless current_user.avatar.nil? %>
 					<%= image_tag("user_icon.jpg", style: 'width:40px', id: 'avatar') %>
-				<% else %>
-					<img src="<%= current_user.avatar %>" style="width:40px" id="avatar">
-				<% end %>
 				</li>
 				<li class="nav-item">
 					<%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class: "btn btn-primary navbar-btn", role: "button" %>

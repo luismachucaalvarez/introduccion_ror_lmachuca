@@ -2,12 +2,14 @@ class PinsController < ApplicationController
   def index
     # Setup search
     if params[:q].present?
-      @Pins= Pin.where('title like?',"%={params[q]}%")
+      #@Pins= Pin.where('name like ?',"%={params[:q]}%")
+      @Pins= Pin.where('name like ?',"%#{params[:q]}%")
+      
     else
       @Pins = Pin.all
     end
   end
-s
+
   def new
     @pin = Pin.new
 #    @pin = Pin.create(params[:name])
@@ -28,7 +30,7 @@ s
 
   private
     def pin_params
-      params.require(:pin).permit(:name, :image, :description)
+      params.require(:pin).permit(:name, :image, :description, :q)
     end
 
   def edit

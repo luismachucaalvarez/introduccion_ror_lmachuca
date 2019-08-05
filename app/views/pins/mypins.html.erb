@@ -1,10 +1,9 @@
 <div class="container">
-  <div class="row">
-
-  <!-- El ciclo do mostrará cada imagen que se tenga almacenada en la base de datos -->
-
     
-      <% @pins.each do |pin| %>
+    <div class="row">
+
+    <!-- El ciclo do mostrará cada imagen que se tenga almacenada en la base de datos -->
+        <% @pins.each do |pin| %>
       <div class="col-sm-6 col-md-4 col-lg-3">
         <div class="card">
           <% if pin.image.attached? %>
@@ -21,7 +20,6 @@
           </div>
         </div>
         </div>
-      <% end %>        
-    
-  </div>
+      <% end %>      
+    </div>
 </div>

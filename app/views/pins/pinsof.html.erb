@@ -1,0 +1,12 @@
+<div class="container-fluid">
+    
+    <div class="row">
+
+    <!-- El ciclo do mostrará cada imagen que se tenga almacenada en la base de datos -->
+        <%= @pins.each do |pin| %>
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <% image_tag pin.image.variant(resize: "200x200") %>
+          </div>
+        <% end %>
+    </div>
+</div>

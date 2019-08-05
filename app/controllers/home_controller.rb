@@ -1,5 +1,10 @@
 class HomeController < ApplicationController
   def index
-    @Pins = Pin.all
+    #@pins = Pin.all.select(:name)
+    #@pins = Pin.all
+    #render "pins/index"
   end
+
+
+
 end

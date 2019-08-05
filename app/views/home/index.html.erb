@@ -1,14 +1,3 @@
-
-<div class="container-fluid">
-    
-    <div class="row">
-
-    <!-- El ciclo do mostrará cada imagen que se tenga almacenada en la base de datos -->
-        <% @Pins.each do |pin| %>
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <img src="<%= pin.image %>" alt="<% pin.id %>" class="card-img-top" style="display: inline-block">
-            </div>
-        <% end %>
-    </div>
-</div>
-
+<%= @pins.each do |pin| %>
+    <%= pin.name %>
+<% end %>

@@ -12,10 +12,6 @@
 	<div class="collapse navbar-collapse flex-grow-1 text right" id="navbarSupportedContent">
 		<!-- Search form -->
 		
-		<%# <form class="form-inline" action="<%= pins_path %>"> %>
-			<%# <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" name="q">
-			<button class="btn btn-success" type="submit">Search</button>
-		</form> %>
 
 		<%= form_tag(pins_path, method: :get, class:'form-inline') do %>
 			<%= text_field_tag :q , params[:q], class: 'form-control mr-sm-2' %>
@@ -24,26 +20,32 @@
 
 		<!-- Menu elements -->
     	<ul class="navbar-nav ml-auto flex-nowrap">
-			<li class="nav-link menu-item"> Inicio</li>
-         	<li class="nav-link menu-item"> Mis Pins</li>
-
-			 <!-- The following conditional tests if the user is logged on to the site -->
-			<%  unless user_signed_in? %>
-				<li class="nav-item">
-					<%= link_to "Registro", new_user_registration_path, class: "btn btn-primary btn-md navbar-btn", role: "button" %>
+				<li class="nav-link menu-item"> 
+					<%= link_to "Inicio", "/" %>
 				</li>
-				<li class="nav-item">
-					<%= link_to "Ingresar", user_session_path, class: "btn btn-primary btn-md navbar-btn", role: "button" %>
+      	<li class="nav-link menu-item">
+					<%= link_to "Mis Pins", mypins_path %>
 				</li>
-		    <% else %>
-				<li class="nav-item">
-					<%= image_tag("user_icon.jpg", style: 'width:40px', id: 'avatar') %>
-				</li>
-				<li class="nav-item">
-					<%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class: "btn btn-primary navbar-btn", role: "button" %>
-				</li>
-      	 	<% end %>
-        </ul>
+			 	<!-- The following conditional tests if the user is logged on to the site -->
+				<%  unless user_signed_in? %>
+					<li class="nav-item">
+						<%= link_to "Registro", new_user_registration_path, class: "btn btn-primary btn-md navbar-btn", role: "button" %>
+					</li>
+					<li class="nav-item">
+						<%= link_to "Ingresar", user_session_path, class: "btn btn-primary btn-md navbar-btn", role: "button" %>
+					</li>
+		  	<% else %>
+					<li class="nav-item">
+						<%= image_tag("user_icon.jpg", style: 'width:40px', id: 'avatar') %>
+					</li>
+					<li class="nav-item">
+						<%= link_to "Crear Pin", 'pins/new', class: "btn btn-danger btn-md navbar-btn", role:"button"%>
+					</li>
+					<li class="nav-item">
+						<%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class: "btn btn-primary navbar-btn", role: "button" %>
+					</li>
+      	<% end %>
+      </ul>
     </div>
         <!-- <span class="navbar-text">
             Bienvenido, usuario

@@ -1,2 +1,21 @@
-<h1>Pins#show</h1>
+<!-- <h1>Pins#show</h1>
 <p>Find me in app/views/pins/show.html.erb</p>
+-->
+<h2>Se ha agregado el siguiente pin exitosamente</h2>
+<div class="row">
+  <div class="col">
+    <p><%= image_tag @pin.image.variant(resize:"200x200") %></p>
+  </div>
+  <div class="col">
+    <p>Nombre del pin: <%= @pin.name %></p>
+    <p>Descripción: <%= @pin.description %></p>
+    <p><%= @pin.likes.count %> <%= (@pin.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+    
+    <%= link_to "Atras", pins_path, class:"btn btn-success"%>
+    <%= link_to "Modificar", edit_pin_path(@pin), method: 'get', class:"btn btn-secondary"%>
+    <%= link_to "Like", pin_likes_path(@pin), method: :post %>
+    <%= link_to 'Eliminar', @pin, method: :delete, data: {confirm: '¿Estás seguro?' }%>
+  </div>
+
+</div>
+

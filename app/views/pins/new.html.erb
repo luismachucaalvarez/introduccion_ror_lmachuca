@@ -1,22 +1,5 @@
-<%# <h1>Pins#new</h1>
-<p>Find me in app/views/pins/new.html.erb</p> %>
-
 <h2>Nuevo Pin</h2>
 
-<%= form_for :pin, url: pins_path do |f| %>
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :image %><br />
-    <%= f.text_field :image %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<%= render 'partials/form' %>
+
+<%= link_to 'Atrás', pins_path %>

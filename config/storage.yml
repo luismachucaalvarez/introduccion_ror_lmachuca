@@ -25,7 +25,7 @@ google:
   service: GCS
   project: pins-images
   #credentials: <%= ENV['GOOGLE_APPLICATION_CREDENTIALS'].as_json %>
-  credentials: <%= Rails.root.join "config/secrets/pins-images.json %>
+  credentials: <%= Rails.root.join "config/secrets/pins-images.json" %>
   bucket: pins-images-lmachuca
   
 google_dev:
